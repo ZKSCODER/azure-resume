@@ -3,8 +3,7 @@ name: deploy_frontend # Deploys when push is made from frontend folder
 on:
     push:
         branches: [ main ]
-        paths:
-        - "frontend/**"
+    workflow_dispatch:     
 
 jobs:
   build:
@@ -24,8 +23,8 @@ jobs:
             az storage blob sync \
               --account-name azureresumergbd57 \
               --container '$web' \
-              -source frontend/ \
-              --auth-mode login \
+              --source frontend/ \
+              --auth-mode login 
 
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
@@ -34,7 +33,7 @@ jobs:
            az afd endpoint purge \
             --content-paths  "/*" \
             --profile-name "azureresume" \
-            --name "azureresume-buc8cffwdkgyh5ck" \
+            --endpoint-name "azureresume" \
             --resource-group "azureresume-rg"
 
   # Azure logout
