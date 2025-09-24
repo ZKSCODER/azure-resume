@@ -3,10 +3,9 @@ window.addEventListener('DOMContentLoaded', (event) =>{
 })
 
 // Pick the right URL depending on where the site is running
-const functionApiUrl =
-  window.location.hostname === "localhost"
-    ? "http://localhost:7071/api/GetResumeCounterV10" // local Functions host
-    : "/api/GetResumeCounterV10"; // production (Front Door injects key)
+const functionApiUrl = "/api/GetResumeCounterV10"
+// ? "http://localhost:7071/api/GetResumeCounterV10" // local Functions host
+   // : "/api/GetResumeCounterV10"; // production (Front Door injects key)
 
 // Call the API when the page loads
 window.addEventListener("DOMContentLoaded", () => {
