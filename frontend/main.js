@@ -1,7 +1,3 @@
-window.addEventListener('DOMContentLoaded', (event) =>{
-    getVisitCount();
-})
-
 // Pick the right URL depending on where the site is running
 const functionApiUrl = 
         window.location.hostname === "localhost"
